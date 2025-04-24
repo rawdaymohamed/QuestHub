@@ -1,2 +1,22 @@
 venv/
 .vscode
+backend/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.env
+.env
+
+# Django
+backend/db.sqlite3
+/staticfiles/
+media/
+
+# Virtual environment
+venv/
+env/
+
+# VSCode or other IDE configs
+.vscode/
+.idea/

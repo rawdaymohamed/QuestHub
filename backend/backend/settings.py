@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -130,3 +134,21 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
+API_KEY = os.getenv('CLOUDINARY_API_KEY')
+API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+
+CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
+API_KEY = os.getenv('CLOUDINARY_API_KEY')
+API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config(
+    cloud_name = CLOUD_NAME,
+    api_key = API_KEY,
+    api_secret = API_SECRET
+)
