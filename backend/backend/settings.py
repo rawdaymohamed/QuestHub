@@ -134,21 +134,12 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
-API_KEY = os.getenv('CLOUDINARY_API_KEY')
-API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
-
-CLOUD_NAME = os.getenv('CLOUDINARY_CLOUD_NAME')
-API_KEY = os.getenv('CLOUDINARY_API_KEY')
-API_SECRET = os.getenv('CLOUDINARY_API_SECRET')
-
 import cloudinary
-import cloudinary.uploader
 import cloudinary.api
+import cloudinary.uploader
 
 cloudinary.config(
-    cloud_name = CLOUD_NAME,
-    api_key = API_KEY,
-    api_secret = API_SECRET
+    cloud_name=os.environ["CLOUDINARY_CLOUD_NAME"],
+    api_key=os.environ["CLOUDINARY_API_KEY"],
+    api_secret=os.environ["CLOUDINARY_API_SECRET"]
 )
